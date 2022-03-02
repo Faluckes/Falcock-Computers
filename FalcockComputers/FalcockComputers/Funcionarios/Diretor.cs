@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FalcockComputers.Sistemas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FalcockComputers.Funcionarios
 {
-    public class Diretor : Funcionario
+    public class Diretor : Authenticable
     {
         public Diretor(string cpf) : base(10000, cpf) { }
         public override void IncreaseSalary()

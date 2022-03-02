@@ -1,4 +1,5 @@
 ﻿using FalcockComputers.Funcionarios;
+using FalcockComputers.Sistemas;
 using System;
 
 
@@ -9,9 +10,38 @@ namespace FalcockComputers
         static void Main(string[] args)
         {
 
-            CalcBonificacao();
+            // CalcBonificacao();
+
+            UseSystem();
 
             Console.ReadLine();
+        }
+        public static void UseSystem()
+        {
+            InternalSystem internalSystem = new InternalSystem();
+
+            Diretor faluckes = new Diretor("136.682.899-21");
+            faluckes.Name = "Faluckes";
+            faluckes.Password = "fa27102004";
+
+            Developer lolo = new Developer("543.543.543-96");
+            lolo.Name = "Lorenzo";
+            lolo.Password = "teucu";
+
+            Coordenator yuki = new Coordenator("321.312.312-32");
+            yuki.Name = "Yuki";
+            yuki.Password = "espetinhodegato";
+
+            Designer gabo = new Designer("699.966.696-69");
+            gabo.Name = "Gabo";
+            gabo.Password = "superidol";
+
+            // Aqui estou logando alguns funcionarios que dei permissão para acessar o "Sistema".
+            // Tire o "gabo" como comentario e leia o erro.
+            internalSystem.Logar(yuki, "hentai");
+           // internalSystem.Logar(gabo, "suuperidol");
+            internalSystem.Logar(lolo, "teucu");
+            internalSystem.Logar(faluckes, "fa27102004");
         }
         public static void CalcBonificacao()
         {
@@ -29,6 +59,7 @@ namespace FalcockComputers
             Auxiliar carlos = new Auxiliar("321.543.765-69");
             carlos.Name = "Carlos";
             Developer lolo = new Developer("543.543.543-96");
+            lolo.Name = "Lorenzo";
 
             // Estou Registrando os Funcionarios para receberem o Salario e contar como membros da empresa.
             manager.Register(faluckes);

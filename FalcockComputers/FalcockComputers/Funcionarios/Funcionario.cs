@@ -14,7 +14,7 @@ namespace FalcockComputers.Funcionarios
         public string Name { get; set; }
         public string CPF { get; private set; }
         public double Salary { get; protected set; }
-
+        public string Password { get; set; }
         public Funcionario(double salary, string cpf)
         {
             Console.WriteLine("Criando Funcionario ");
