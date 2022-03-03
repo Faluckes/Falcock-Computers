@@ -36,12 +36,19 @@ namespace FalcockComputers
             gabo.Name = "Gabo";
             gabo.Password = "superidol";
 
+            // Mesmo estando em CommercialPartner, algumas classes dos cargos, não tem permissão para logar.
+            CommercialPartner parceiro = new CommercialPartner();
+            parceiro.Password = "jamba";
+
+
+
             // Aqui estou logando alguns funcionarios que dei permissão para acessar o "Sistema".
             // Tire o "gabo" como comentario e leia o erro.
             internalSystem.Logar(yuki, "hentai");
-           // internalSystem.Logar(gabo, "suuperidol");
+            // internalSystem.Logar(gabo, "superidol");
             internalSystem.Logar(lolo, "teucu");
             internalSystem.Logar(faluckes, "fa27102004");
+            internalSystem.Logar(parceiro, "jamba");
         }
         public static void CalcBonificacao()
         {

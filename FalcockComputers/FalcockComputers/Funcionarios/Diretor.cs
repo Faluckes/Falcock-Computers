@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FalcockComputers.Funcionarios
 {
-    public class Diretor : Authenticable
+    public class Diretor : AuthFuncionarios
     {
         public Diretor(string cpf) : base(10000, cpf) { }
         public override void IncreaseSalary()

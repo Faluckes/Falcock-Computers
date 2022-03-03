@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FalcockComputers.Funcionarios
 {
-    public class Developer : Authenticable
+    public class Developer : AuthFuncionarios
     {
         public Developer(string cpf) : base(7000, cpf) { }
         public override double GetBonificacao()

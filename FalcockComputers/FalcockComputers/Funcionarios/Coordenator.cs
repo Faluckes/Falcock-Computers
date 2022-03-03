@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FalcockComputers.Funcionarios
 {
-    public class Coordenator : Authenticable
+    public class Coordenator : AuthFuncionarios
     {
         public override void IncreaseSalary()
         {
