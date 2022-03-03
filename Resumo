@@ -1,0 +1,30 @@
+Começamos discutindo os membros compartilhados entre Diretor e outros tipos de Funcionario, como Nome, CPF e Salario. Ao longo das aulas, percebemos que não faz sentido repetir o código inúmeras vezes.
+
+Assim, criamos uma abstração, por meio de abstract, na classe Funcionario, que armazena essas propriedades em comum entre as classes que herdam a classe base. Em Designer, por exemplo, utilizamos dois pontos (:) depois da definição da classe, para indicar a herança.
+
+E, a partir da herança, por meio da palavra base, dentro de uma classe derivada, conseguimos acessar os membros da classe mãe. Assim, entendemos que é necessário chamar o construtor da classe mãe primeiro, para depois chamar o construtor da classe derivada. A partir de base, conseguimos acessar também os membros e as implementações da classe Funcionario.
+
+Estudamos que modificadores de acesso, como private e public, algumas vezes não são o suficiente. Nesses casos, exploramos o uso de protected, que permite que a classe e seus tipos derivados adquiram o comportamento de um membro público, ao mesmo tempo em que a mantém protegida, invisível aos membros que estão fora da hierarquia dela.
+
+Outra grande vantagem da herança é o polimorfismo, que utilizamos em ManagerBonificacao, no qual temos o método Register() exigindo somente Funcionario como argumento. Não tivemos que fazer uma implementação para cada tipo de Funcionario. Bastou escrevermos Funcionario funcionario.
+
+Mas GetBonificacao() é diferente para cada tipo de Funcionario, não é mesmo? E, por isso, estudamos o uso de abstract, palavra reservada que impede a criação de instância de classe, diretamente desse tipo.
+
+O benefício da abstração é exatamente esse: poder definir métodos comuns a todos os tipos de Funcionario, mantendo a implementação de cada um. Considerando esses fatores, utilizamos abstract em Funcionario para omitir a implementação da classe mãe.
+
+Analisamos o uso de virtual também, muito semelhante a abstract com a diferença de que o primeiro permite implementação na classe mãe, pedindo override na classe filha para sobrescrever. No caso de Diretor, sobrescrevemos IncreaseSalary() e GetBonificacao() com override, que funciona tanto com métodos da classe mãe virtual, quanto com métodos abstratos.
+
+No caso de Autenticavel, aprendemos que a herança não resolve todos os tipos de problema. Criamos InternalSystem, que devia permitir o acesso de GerenteDeConta, Diretor e de ParceiroComercial. Mas esse último não fazia parte da hierarquia de Funcionario. Resolvemos esse impasse com um "contrato", estabelecendo que toda classe que implementa a interface, terá o método Autenticar(), que retona bool e exige string, como conferimos na interface IAutenticavel:
+
+namespace FalcockComputers.Sistemas
+{
+    public interface IAutchenticable
+    {
+        public bool Auth(string password);
+    }
+}
+Lembrando que utilizamos I no começo do nome da interface, seguindo a convenção de nomes que nos auxilia na diferenciação de classes e interfaces. Em AuthFuncionario, ficou bem clara a herança do tipo Funcionario e a implementação da interface IAuthenticable.
+
+public class AuthFuncionario : Funcionario, IAuthenticable
+
+Além dos conteúdos citados, entendemos porque a linguagem C# não dá suporte para herança múltipla, testando na prática, quais problemas e quais métodos acabaríamos chamando, gerando confusão.
